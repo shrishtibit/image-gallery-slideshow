@@ -1,0 +1,121 @@
+<html>
+<head>
+	<title>Image Gallery</title>
+	<link rel = "stylesheet"
+	      type = "text/css"
+	      href = "bootstrap.css"/>
+	<link rel = "stylesheet"
+	      type = "text/css"
+	      href = "stylesshrishti.css"/>  
+	<script src = "http://code.jquery.com/jquery-1.11.3.min.js"></script>    
+</head>
+<body>
+	<a href = "shrishti.html">
+	Home
+    </a>
+    &nbsp;
+    <a href = "aboutshrishti.html">
+	About me
+    </a>
+    &nbsp;
+    <a href = "contactshrishti.html">
+	Contact me
+    </a>
+    <hr></hr>
+
+    <div class = "container">
+    	<div class = "row">
+    		<div class = "col-md-3">
+    		<img class = "crop-img" id = "image1" src = "img_1.jpeg" alt = ""/>
+    		</div>
+    		<div class = "col-md-3">
+    		<img class = "crop-img" id = "image2" src = "img_2.jpeg" alt = ""/>
+    		</div>
+    		<div class = "col-md-3">
+    		<img class = "crop-img" id = "image3" src = "img_3.jpeg" alt = ""/>
+    		</div>
+    		<div class = "col-md-3">
+    		<img class = "crop-img" id = "image4" src = "img_4.jpeg" alt = ""/>
+    		</div>
+    	</div>
+    	<div class = "row">
+            <div class = "col-md-1">
+                <button id = "backwards">&lt;</button>
+            </div>
+    		<div class = "col-md-10">
+    			<img class = "large-img" id = "bigImage" src = "img_1.jpeg" alt = ""/>
+    		</div>
+             <div class = "col-md-1">
+                <button id = "forwards">&gt;</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".crop-img").click(function(){
+            $("#bigImage").attr('src' , 
+                $(this).attr('src'));
+        });
+
+        var counter = 1;
+        var paused = false;
+
+        $("#image"+counter).click();
+
+        $("#backwards").click(function(){
+            counter = counter - 1;
+            if(counter < 1)
+            {
+                counter = 4;
+            }
+        $("#image"+counter).click();
+        });
+
+         $("#forwards").click(function(){
+            counter = counter + 1;
+            if(counter > 4)
+            {
+                counter = 1;
+            }
+        $("#image"+counter).click();
+        });
+
+        $("#bigImage").click(function(){
+            paused = !paused;
+        });
+        
+        setInterval(function(){
+        if(!paused){
+            $("#forwards").click();
+        };
+        },2000);
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+    			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
